@@ -4,7 +4,7 @@ date: 2021-01-23T10:54:01-08:00
 draft: false
 type: page
 menu: main
-featured_image: "img/rainier.jpeg"
+featured_image: "img/cascade1.jpg"
 ---
 
 GeoScript Groovy

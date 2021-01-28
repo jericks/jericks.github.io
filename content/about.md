@@ -4,7 +4,7 @@ date: 2021-01-23T10:53:53-08:00
 draft: false
 type: page
 menu: main
-featured_image: "img/rainier.jpeg"
+featured_image: "img/northdakota.jpg"
 ---
 
 I was born in North Dakota where I spent my childhood exploring the badlands.  In college I majored in Archaeology and Classical Languages (Latin and Greek).  During my summers, I was able to work as an archaeologist in North Dakota and Michigan after attending fields schools in Fargo and Greece.  I continued my Archaeological education by attending graduate school at the University of Oregon where I studied Geoarchaeology and excavated a site on the Alaska Peninsula that led to my Master's Thesis entitled "The Geoarchaeology of Nak-8".
