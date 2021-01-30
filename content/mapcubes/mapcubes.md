@@ -45,10 +45,6 @@ Earth Map Quest Street
 
 ![Earth Map Quest Street](/mapcubes/img/earth_map_quest_street.png)
 
-Earth Map Quest Satellite
-
-![Earth Map Quest Satellite](/mapcubes/img/earth_mapquest_satellite.png)
-
 Earth Natural
 
 ![Earth Natural](/mapcubes/img/earth_natural.png)
