@@ -97,6 +97,10 @@ Mars Colorful
 
 ![Mars Colorful](/mapcubes/img/mars_colorful.png)
 
+Mars Geology
+
+![Mars Geology](/mapcubes/img/mars_geology.png)
+
 Mercury
 
 ![Mercury](/mapcubes/img/mercury.png)
