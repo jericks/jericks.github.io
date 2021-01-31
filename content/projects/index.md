@@ -107,3 +107,20 @@ MBTilesServer is a Spring Boot and GeoScript microservice for serving your MBTil
 ![MBTilesServer](/projects/img/mbtilesserver.png)
 
 
+GeoPackageServer
+================
+
+[Github](https://github.com/jericks/GeoPackageServer)
+
+GeoPackageServer is a Spring Boot and GeoScript microservice for serving your GeoPackage database on the web with restful web services. 
+
+![GeoPackageServer](/projects/img/geopackageserver.png)
+
+Geometry Web Services
+=====================
+
+[Github](https://github.com/jericks/geometry-ws)
+
+Geometry Web Services is a suite of micro geometry web services using the Java Topology Suite (JTS) and Micronaut written in Java.
+
+![GeoPackageServer](/projects/img/geometry-ws.png)
