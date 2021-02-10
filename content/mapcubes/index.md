@@ -7,7 +7,7 @@ menu: main
 featured_image: "img/mapcube.jpg"
 ---
 
-My daughters and I are avid star wars fans and we discovered cube craft paper models as a fun way to create toys.  I then discovered that you can do the same thing with maps.  The cubed Gnomonic projection is perfect for creating simple map cubes that kids can easily print, cut out, and assemble with a glue stick. We started making our own map cubes using NASA's G.Projector software but quickly moved to creating our own tool using GeoTools and GeoScript.  Here are some of our favorite map cubes.
+My daughters and I are avid star wars fans and we discovered cube craft paper models as a fun way to create toys.  I then discovered that you can do the same thing with maps.  The cubed Gnomonic projection is perfect for creating simple map cubes that kids can easily print, cut out, and assemble with a glue stick. We started making our own map cubes using NASA's G.Projector software but quickly moved to creating our own tool using GeoTools and GeoScript.  We even gave a [presentation](https://www.slideshare.net/JaredErickson/map-cubes) at [CUGOS](https://cugos.org/).  Here are some of our favorite map cubes.
 
 Blank (draw your own world)
 
