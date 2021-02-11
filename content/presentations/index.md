@@ -4,7 +4,7 @@ date: 2021-01-24T20:02:11-08:00
 draft: false
 type: page
 menu: main
-featured_image: "img/mapcube.jpg"
+featured_image: "img/beach.jpg"
 ---
 
 GeoScript: The GeoSpatial Swiss Army Knife
