@@ -93,7 +93,7 @@ geo-shell
 
 [Github](https://github.com/jericks/geo-shell) | [Website](https://jericks.github.io/geo-shell/) 
 
-geo-shell is an interactive shell for geospatial analysis.  It support vector, raster, and tile datasets and includes a map moduleBehind the scenes it uses GeoScript Groovy, GeoTools, and JTS.
+geo-shell is an interactive shell for geospatial analysis.  It support vector, raster, and tile datasets and includes a map module.  Behind the scenes it uses GeoScript Groovy, GeoTools, and JTS.
 
 ![geo-shell](/projects/img/geoshell.png)
 
