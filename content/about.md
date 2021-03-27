@@ -13,4 +13,4 @@ After graduating with my Master's degree, I worked briefly as a contract archaeo
 
 My interest in geospatial open source began when my manager sent me to the 2007 FOSS4G conference in Victoria.  Since then I regularly attend CUGOS in Seattle and have attended a few subseqent FOSS4G conferences (2011, 2014, and 2015). 
 
-I am primarily develop in Java but I also have years of experience in Groovy, JavaScript, HTML, and CSS.  I have also used Python, C, and C++.
+I primarily develop in Java but I also have years of experience in Groovy, JavaScript, HTML, and CSS.  I have also used Python, C, and C++.
