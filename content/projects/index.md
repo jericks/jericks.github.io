@@ -139,3 +139,40 @@ geos-cli buffer -g "POINT (1 1)" -d 10 | geos-cli centroid
 ```
 
 geos-cli is written in C++ using [CLI11](https://github.com/CLIUtils/CLI11) and [GEOS](https://github.com/libgeos/geos). The [Google Test library](https://github.com/google/googletest) is used to write unit tests. The project is built with [CMake](https://cmake.org/) and dependencies are managed with [conan](https://conan.io/).
+
+geos
+====
+
+[Github](https://github.com/libgeos/geos)
+
+GEOS is a C++ library for geometry.  I added [GeoJSON support](https://github.com/libgeos/geos/pull/419).
+
+You can now read a GeoJSON string.
+
+```cpp
+geos::io::GeoJSONReader geojsonReader;
+std::string geojson { "{\"type\":\"Point\",\"coordinates\":[-117.0,33.0]}" };
+std::unique_ptr<geos::geom::Geometry> geom { geojsonReader.read(geojson) };
+std::cout << geom->toText()) << "\n";
+>>> "POINT (-117.000 33.000)"
+```
+
+And write a GEOS geometry.
+
+```cpp
+geos::io::WKTReader wktReader;
+std::unique_ptr<geos::geom::Geometry> geom(wktReader.read("POINT(-117 33)"));
+std::string result = geojsonwriter.write(geom.get());
+>>> {"type":"Point","coordinates":[-117.0,33.0]}
+```
+
+Python GDAL Cookbook
+====================
+
+[Github](https://github.com/pcjericks/py-gdalogr-cookbook) | [Website](http://pcjericks.github.io/py-gdalogr-cookbook/index.html)
+
+This cookbook has simple code snippets on how to use the Python GDAL/OGR API. The web site is a project at GitHub and served by Github Pages. 
+
+The cookbook started as a project at work and then expanded into a CUGOS project with lots of help from the community.
+
+![Python GDAL Cookbook](/projects/img/python-gdal-cookbook.png)
