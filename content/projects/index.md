@@ -176,3 +176,12 @@ This cookbook has simple code snippets on how to use the Python GDAL/OGR API. Th
 The cookbook started as a project at work and then expanded into a CUGOS project with lots of help from the community.
 
 ![Python GDAL Cookbook](/projects/img/python-gdal-cookbook.png)
+
+GeoServer Shell
+===============
+
+[Github](https://github.com/jericks/geoserver-shell)
+
+Administer Geoserver using a command line interface (CLI). Geoserver Shell uses the same shell interface used by Spring Roo and provides extensive tab completion, history support, and the ability to run scripts.
+
+Geserver Shell administers Geoserver using the excellent Geoserver Rest API. You can publish shapefiles, GeoTIFFs, and PostGIS layers, upload and download SLDs, and start tile seeding straight from the command line.
