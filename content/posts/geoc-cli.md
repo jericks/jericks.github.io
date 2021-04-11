@@ -1,27 +1,29 @@
 ---
 title: "GEOC: A command line interface for GeoTools"
-date: 2021-04-15T16:46:23-07:00
+date: 2021-04-11T14:46:23-07:00
 tags: ["GEOC","GeoTools","GeoScript","CLI"]
 featured_image: "/posts/geoc-cli-vector-buffer.png"
 draft: false
 ---
 
-The [GDAL and OGR](https://gdal.org/) libraries are written in C and C++ and have an awesome command line interface (CLI).  They are used extensively by GIS analysts and developers.
+The [GDAL and OGR](https://gdal.org/) libraries are written in C and C++ and have an awesome command line interface (CLI).  It is used extensively by GIS analysts and developers.
 
 On the Java side of the fence, [GeoTools](https://geotools.org/) is an equivalent geospatial library.  It contains code for reading and writing vector and raster datasets but it does not have a CLI.
 
-The [GEOC project](https://github.com/jericks/geoc) is my attempt to give GeoTools a CLI.  It is written in [Groovy](https://groovy-lang.org/) using [GeoScript](https://github.com/geoscript/geoscript-groovy) and runs on the JVM.
+The [GEOC project](https://github.com/jericks/geoc) is my attempt to give GeoTools a CLI.  It is written in [Groovy](https://groovy-lang.org/) using [GeoScript](https://github.com/geoscript/geoscript-groovy) which wraps GeoTools in a scripting API.
 
-When I started working on GEOC, I was heavily influence by the [Unix Philosphy](https://en.wikipedia.org/wiki/Unix_philosophy):
+When I started working on GEOC, I was heavily influence by the [Unix Philosophy](https://en.wikipedia.org/wiki/Unix_philosophy):
 
 * Write programs that do one thing and do it well.
 * Write programs to work together.
 * Write programs to handle text streams, because that is a universal interface.
 
+The rest of this post will explain how GEOC follows the Unix Philosophy.
+
 Write programs that do one thing and do it well
 -----------------------------------------------
 
-The GEOC is modeled after the GIT CLI.  It has one command called **geoc** but is has many sub commands.  Each sub command does one thing with a minimum of command line options.
+GEOC is modeled after the GIT CLI.  It has one command called **geoc** but is has many sub commands.  Each sub command does one thing with a minimum of command line options.
 
 GEOC subcommands are divided into a few major categories:
 
@@ -48,7 +50,7 @@ geoc raster shadedrelief -i elev.tif -o shadedrelief -s 1.0 -a 45.0 -m 15.0
 Write programs to handle text streams
 -------------------------------------
 
-GEOC subcommands by default will read and write CSV for vector layers and ASCII grids for raster layers.
+GEOC by default will read and write CSV for vector layers and ASCII grids for raster layers because both of these formats are plain text and easily manipulated by other standard Unix tools.
 
 So, you can create 10 randomally placed points within a geometry by running the following command.
 
@@ -75,7 +77,7 @@ Without specifying an output vector layer you will get CSV.
 Write programs to work together
 -------------------------------
 
-GEOC subcommands can work together by piping the results of one command to another.  This examples creates 100 random points and then pipes the result to the next command which buffers each point.
+GEOC commands can work together by piping the results of one command to another.  This examples creates 100 random points and then pipes the result to the next command which buffers each point.
 
 ```bash
 geoc vector randompoints -g -180,-90,180,90 -n 100 | geoc vector buffer -d 10 
@@ -93,7 +95,7 @@ geoc vector randompoints -g -180,-90,180,90 -n 100 | geoc vector buffer -d 10
 Buffer a Vector Layer
 ---------------------
 
-This complete example illustrates how GEOC is inspired by the Unix Philosophy.  
+The following complete example illustrates how GEOC is inspired by the Unix Philosophy.  
 
 ```bash
 geoc vector randompoints -g -180,-90,180,90 -n 100 > points.csv
