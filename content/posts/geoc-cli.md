@@ -1,6 +1,6 @@
 ---
 title: "GEOC: A command line interface for GeoTools"
-date: 2021-04-08T16:46:23-07:00
+date: 2021-04-015T16:46:23-07:00
 tags: ["GEOC","GeoTools","GeoScript","CLI"]
 featured_image: "/posts/geoc-cli-vector-buffer.png"
 draft: false
@@ -141,4 +141,4 @@ geoc map draw -f vector_buffer.png -l "layertype=layer file=naturalearth.gpkg la
 
 ![Convexhull](/posts/geoc-cli-vector-buffer.png)
 
-One of the great advantages of the GEOS CLI is that you can do spatial analysis and visualization with one tool.  With this post piqued your interest check out the [Github repository](https://github.com/jericks/geoc) and [web site](http://jericks.github.io/geoc/index.html).
+One of the great advantages of the GEOC CLI is that you can do spatial analysis and visualization with one tool.  If this post piqued your interest check out the project's [Github repository](https://github.com/jericks/geoc) and [web site](http://jericks.github.io/geoc/index.html).
