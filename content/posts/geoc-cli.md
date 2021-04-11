@@ -12,28 +12,28 @@ On the Java side of the fence, [GeoTools](https://geotools.org/) is an equivalen
 
 The [GEOC project](https://github.com/jericks/geoc) is my attempt to give GeoTools a CLI.  It is written in [Groovy](https://groovy-lang.org/) using [GeoScript](https://github.com/geoscript/geoscript-groovy) which wraps GeoTools in a scripting API.
 
-When I started working on GEOC, I was heavily influence by the [Unix Philosophy](https://en.wikipedia.org/wiki/Unix_philosophy):
+When I started working on GEOC, I was heavily influence by the [Unix Philosophy](https://en.wikipedia.org/wiki/Unix_philosophy). 
 
 * Write programs that do one thing and do it well.
 * Write programs to work together.
 * Write programs to handle text streams, because that is a universal interface.
 
-The rest of this post will explain how GEOC follows the Unix Philosophy.
+The rest of this post will explain how GEOC follows this philosophy.
 
 Write programs that do one thing and do it well
 -----------------------------------------------
 
-GEOC is modeled after the GIT CLI.  It has one command called **geoc** but is has many sub commands.  Each sub command does one thing with a minimum of command line options.
+GEOC is modeled after git.  It has one command called **geoc** but is has many sub ommands.  Each subcommand does one thing with a minimum of command line options.
 
 GEOC subcommands are divided into a few major categories:
 
-* vector
-* raster
-* tile
-* map
-* style
-* geometry
-* filter
+* **vector** = performs operations on vector layers like Shapefiles, PostGIS, or GeoPackage
+* **raster** = performs operations on raster layers like GeoTIFFs or PNGs
+* **tile** = performs operations on tile layers like MBTiles, GeoPackage, or TMS
+* **map** = renders vectors, raster, and tiles 
+* **style** = creates SLD and CSS styles
+* **geometry** = performs operations on geometry
+* **filter** = performs operations on CQL filters
 
 So to extract centroids from a vector layer, you would use the **geoc vector centroid** command:
 
@@ -52,7 +52,7 @@ Write programs to handle text streams
 
 GEOC by default will read and write CSV for vector layers and ASCII grids for raster layers because both of these formats are plain text and easily manipulated by other standard Unix tools.
 
-So, you can create 10 randomally placed points within a geometry by running the following command.
+You can create 10 randomally placed points within a geometry by running the following command.
 
 ```bash
 geoc vector randompoints -g "0 0 10 10" -n 10
@@ -77,10 +77,10 @@ Without specifying an output vector layer you will get CSV.
 Write programs to work together
 -------------------------------
 
-GEOC commands can work together by piping the results of one command to another.  This examples creates 100 random points and then pipes the result to the next command which buffers each point.
+GEOC commands can work together by piping the results of one command to another.  This examples creates 5 random points and then pipes the result to the next command which buffers each point.
 
 ```bash
-geoc vector randompoints -g -180,-90,180,90 -n 100 | geoc vector buffer -d 10 
+geoc vector randompoints -g -180,-90,180,90 -n 5 | geoc vector buffer -d 10 
 ```
 
 ```
@@ -112,19 +112,19 @@ geoc map draw -f vector_buffer.png -l "layertype=layer file=naturalearth.gpkg la
     -l "layertype=layer file=points.csv style=points.sld"
 ```
 
-On the first line, we generate 100 random points and direct the CSV output to the a file called **points.csv**.
+On the first line, we generate 100 random points and save the CSV to the a file called **points.csv**.
 
 ```bash
 geoc vector randompoints -g -180,-90,180,90 -n 100 > points.csv
 ```
 
-Next we use the **cat** command to read **points.csv** and put the contents in standard input which we pipe to the next command **geoc vector buffer** which generate a buffer around each point.  That CSV buffer is directed to a file called **polygons.csv**.
+Next we use the **cat** command to read **points.csv** which we then pipe to the next command called **geoc vector buffer** which generates a buffer around each point.  This result is saved to a file called **polygons.csv**.
 
 ```bash
 cat points.csv | geoc vector buffer -d 10 > polygons.csv
 ```
 
-The next two lines again use the **cat** command and pipe the CSV contents to the **geoc vector defaultstyle** command which creates a Styled Layered Descriptor (SLD), based on the geometry type of the layer, which we direct to files for later use.
+The next two lines again use the **cat** command to read the previously saved files and pipe their contents to the **geoc vector defaultstyle**.  This command creates a Styled Layered Descriptor (SLD) based on the geometry type of the layer.
 
 ```bash
 cat points.csv | geoc vector defaultstyle --color navy -o 0.75 > points.sld
@@ -132,7 +132,7 @@ cat points.csv | geoc vector defaultstyle --color navy -o 0.75 > points.sld
 cat polygons.csv | geoc vector defaultstyle --color silver -o 0.5 > polygons.sld
 ```
 
-Finally, we use the **geoc map draw** command to draw the points, buffered polygons on a world map.  The GeoTools library is the base library for GeoServer, so it contains all of rendering code necessary to create maps.  This command also illustrates how we can read vector layers from other datasources (in this case GeoPackage).
+Finally, we use the **geoc map draw** command to draw the points and buffered polygons on a world map.  Since GeoTools is the base library for GeoServer, it contains all of rendering code necessary to create maps.  This command also illustrates how we can read vector layers from other datasources (in this case GeoPackage).
 
 ```bash
 geoc map draw -f vector_buffer.png -l "layertype=layer file=naturalearth.gpkg layername=ocean style=ocean.sld" \
@@ -143,4 +143,4 @@ geoc map draw -f vector_buffer.png -l "layertype=layer file=naturalearth.gpkg la
 
 ![Convexhull](/posts/geoc-cli-vector-buffer.png)
 
-One of the great advantages of the GEOC CLI is that you can do spatial analysis and visualization with one tool.  If this post piqued your interest check out the project's [Github repository](https://github.com/jericks/geoc) and [web site](http://jericks.github.io/geoc/index.html).
+One of the great advantages of the GEOC CLI is that you can do spatial analysis and visualization with one tool.  If this post piqued your interest, check out the project's [Github repository](https://github.com/jericks/geoc) and [web site](http://jericks.github.io/geoc/index.html).
