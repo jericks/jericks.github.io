@@ -6,19 +6,17 @@ featured_image: "img/creek.jpg"
 draft: false
 ---
 
-One of the best ways to get started using the library GEOS with C++ is to use Conan and CMAKE.
+One of the best ways to get started using the GEOS library with C++ is to use Conan and CMAKE. 
 
-[GEOS](https://trac.osgeo.org/geos) is the Geometry Engine, Open Source library written in C and C++.  Is is a port of the [Java Topology Suite](https://github.com/locationtech/jts) (JTS).  Both libraries include spatial predicate function and spatials operators.  GEOS is used extensively in PostGIS extension for Postgres.
-
+[GEOS](https://trac.osgeo.org/geos) is the Geometry Engine, Open Source library written in C and C++.  Is is a port of the [Java Topology Suite](https://github.com/locationtech/jts) (JTS).  Both libraries include spatial predicate functions and spatials operators.  GEOS is used extensively in the PostGIS extension for Postgres.
 [Conan](https://conan.io/) is a C/C++ package manager.  It allows you to declare what libraries your code depends on.
-
-[CMake](https://cmake.org/) is one of the  most popular ways to build C++ applications.  
+Finally, [CMake](https://cmake.org/) is one of the  most popular ways to build C++ applications.  
 
 <!--more-->
 
-First you need to install [conan](https://docs.conan.io/en/latest/installation.html#install-with-pip-recommended) and [CMAKE](https://cmake.org/install∏P).
+Let's build a GEOS hello world style application. First you need to install [conan](https://docs.conan.io/en/latest/installation.html#install-with-pip-recommended) and [CMAKE](https://cmake.org/install∏P).
 
-Then, create a **conanfile.txt** file.
+Then, create a **conanfile.txt** file. This declares that our code depends on GEOS version 3.8.1. 
 
 ```
 [requires]
@@ -28,9 +26,8 @@ geos/3.8.1
 cmake_find_package
 ```
 
-This declares that our code depends on GEOS version 3.8.1 
-
-Create a **CMakeLists.txt** file.
+After that, create a **CMakeLists.txt** file.  This basically says that we require CMAKE 3.1 or higher, we need C++11, and that
+we are building an executable program using a single file called main.cpp that depends on the GEOS library.
 
 ```
 project(geos)
@@ -45,7 +42,8 @@ find_package(geos)
 target_link_libraries(app GEOS::GEOS)
 ```
 
-Now we are ready to create our simple C++ GEOS application.
+Now we are ready to create our simple C++ GEOS application.  After declaring a few includes, we read in a WKT string, buffer the resulting geometry by 2, and then 
+write the buffered geometry back to WKT and the standard output stream.
 
 ```cpp
 #include <iostream>
@@ -68,9 +66,9 @@ int main() {
 }
 ```
 
-Now we are ready to build.
+Now we are ready to build. Cross your fingers.
 
-Create a build directory.
+First, create a build directory.
 
 ```bash
 mkdir build
