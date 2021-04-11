@@ -1,6 +1,6 @@
 ---
 title: "GEOC: A command line interface for GeoTools"
-date: 2021-04-015T16:46:23-07:00
+date: 2021-04-15T16:46:23-07:00
 tags: ["GEOC","GeoTools","GeoScript","CLI"]
 featured_image: "/posts/geoc-cli-vector-buffer.png"
 draft: false
