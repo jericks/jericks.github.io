@@ -23,7 +23,7 @@ The rest of this post will explain how GEOC follows this philosophy.
 Write programs that do one thing and do it well
 -----------------------------------------------
 
-GEOC is modeled after git.  It has one command called **geoc** but is has many sub ommands.  Each subcommand does one thing with a minimum of command line options.
+GEOC is modeled after git.  It has one command called **geoc** but is has many subcommands.  Each subcommand does one thing with a minimum of command line options.
 
 GEOC subcommands are divided into a few major categories:
 
