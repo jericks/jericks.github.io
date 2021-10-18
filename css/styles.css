@@ -1,3 +1,5 @@
 .site-heading h1 {
     color: #264c6d;
 }
+
+img[alt="Star Wars"] { width: 300px; }
