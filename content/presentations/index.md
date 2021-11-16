@@ -7,6 +7,13 @@ menu: main
 featured_image: "img/beach.jpg"
 ---
 
+GEOC: A GeoSpatial Command Line App
+-----------------------------------
+
+![Blank](/presentations/img/geoc.png)
+
+https://jericks.github.io/geoc-pres/slides.html
+
 GeoScript: The GeoSpatial Swiss Army Knife
 ------------------------------------------
 
