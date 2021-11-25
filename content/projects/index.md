@@ -185,3 +185,28 @@ GeoServer Shell
 Administer Geoserver using a command line interface (CLI). Geoserver Shell uses the same shell interface used by Spring Roo and provides extensive tab completion, history support, and the ability to run scripts.
 
 Geserver Shell administers Geoserver using the excellent Geoserver Rest API. You can publish shapefiles, GeoTIFFs, and PostGIS layers, upload and download SLDs, and start tile seeding straight from the command line.
+
+```bash
+gs-shell>geoserver set --url http://localhost:8080/geoserver
+gs-shell>workspace create --name naturalearth
+gs-shell>shapefile zip --shapefile NaturalEarth/SmallScale/110m_cultural/110m_admin_0_countries.shp
+gs-shell>shapefile publish --workspace naturalearth --file NaturalEarth/SmallScale/110m_cultural/110m_admin_0_countries.zip
+```
+
+ShapefileCpp
+============
+
+[Github](https://github.com/jericks/ShapefileCpp)
+
+A C++ Shapefile API that wraps the C shapelib library.
+
+```cpp
+shp::ShapefileReader shp {std::filesystem::absolute("points.shp")};
+shp::Bounds b = shp.getBounds();
+std::cout << "Bounds = " << b << "\n";
+int numberOfFeatures = shp.getCount();
+std::cout << "Number of Features = " << numberOfFeatures << "\n";
+for(auto const& feature : shp) {
+    std:cout << f.getGeometry().wkt() << "\n";
+}
+```
