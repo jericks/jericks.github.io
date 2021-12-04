@@ -1,5 +1,5 @@
 ---
-title: "Writing geo spatial scripts with Java and jbang"
+title: "Writing Geospatial scripts with Java and jbang"
 date: 2021-11-23T11:23:23-08:00
 tags: ["java","jts","jbang","geospatial"]
 featured_image: "img/beach2.jpg"
