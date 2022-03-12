@@ -210,3 +210,23 @@ for(auto const& feature : shp) {
     std:cout << f.getGeometry().wkt() << "\n";
 }
 ```
+
+MBTilesCpp
+==========
+
+[Github](https://github.com/jericks/MBTilesCpp)
+
+A C++ MBTiles API that can create MBTiles databases, load tiles and metadata but it cannot generate the content of tiles.
+
+```cpp
+mbtiles::MBTiles mbtiles { "world.mbtiles" };
+mbtiles.addTile(mbtiles::Tile(0,0,0,"tms/0/0/0.jpeg"));
+mbtiles.addTile(mbtiles::Tile(1,0,0,"tms/1/0/0.jpeg"));
+mbtiles.addTile(mbtiles::Tile(1,0,1,"tms/1/0/1.jpeg"));
+mbtiles.addTile(mbtiles::Tile(1,1,0,"tms/1/1/0.jpeg"));
+mbtiles.addTile(mbtiles::Tile(1,1,1,"tms/1/1/1.jpeg"));
+   
+mbtiles.tiles(1, [&](mbtiles::Tile& t) {
+    std::cout << t << "\n";
+});
+```
