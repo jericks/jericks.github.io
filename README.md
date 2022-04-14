@@ -6,3 +6,7 @@ Website
 A Hugo based web site and blog.
 
 https://jericks.github.io/
+
+RSS Feed 
+
+https://jericks.github.io/posts/index.xml
