@@ -67,7 +67,7 @@ false
 geoc
 ====
 
-[Github](https://github.com/jericks/geoc) | [Website](http://jericks.github.io/geoc/index.html) | [Presentation](https://jericks.github.io/geoc-pres/slides.html)
+[Github](https://github.com/jericks/geoc) | [Website](http://jericks.github.io/geoc/index.html) | [Manual](http://jericks.github.io/geoc/manual/index.html) |  [Presentation](https://jericks.github.io/geoc-pres/slides.html)
 
 geoc is a geospatial command line application that follows the unix philosophy. Each command does one thing well (buffer a layer, crop a raster) by reading a vector layer as a CSV text stream or a raster layer as an ASCII grid, processing the layer or raster, and then writing out the vector layer as a CSV or a raster layer as an ASCII grid. Individual commands can be chained together with unix pipes.
 
@@ -227,6 +227,30 @@ mbtiles.addTile(mbtiles::Tile(1,1,0,"tms/1/1/0.jpeg"));
 mbtiles.addTile(mbtiles::Tile(1,1,1,"tms/1/1/1.jpeg"));
    
 mbtiles.tiles(1, [&](mbtiles::Tile& t) {
+    std::cout << t << "\n";
+});
+```
+
+GeoPackageCpp
+=============
+
+[Github](https://github.com/jericks/GeoPackageCpp)
+
+A C++ GeoPackage API.
+
+```cpp
+const std::string fileName = "data.gpkg";
+geopackage::GeoPackage geopackage { fileName };
+
+std::string name = "basemap";
+geopackage.createTileTable(name);
+geopackage.addTile(name, geopackage::Tile(0,0,0,"data/tms/0/0/0.jpeg"));
+geopackage.addTile(name, geopackage::Tile(1,0,0,"data/tms/1/0/0.jpeg"));
+geopackage.addTile(name, geopackage::Tile(1,0,1,"data/tms/1/0/1.jpeg"));
+geopackage.addTile(name, geopackage::Tile(1,1,0,"data/tms/1/1/0.jpeg"));
+geopackage.addTile(name, geopackage::Tile(1,1,1,"data/tms/1/1/1.jpeg"));
+
+geopackage.tiles(name, 1, [&](geopackage::Tile& t) {
     std::cout << t << "\n";
 });
 ```
